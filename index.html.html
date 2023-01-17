@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todos pela Alice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      /* Estilos gerais */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      #whatsapp-button {
+            background-color: rgb(44, 128, 11);
+            color: white;
+            font-size: 18px;
+            padding: 13px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        #pix-button {
+            background-color: #FF66C4;
+            color: white;
+            font-size: 18px;
+            padding: 13px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+      /* Seção de destaques */
+      .destaques {
+        background-color: #ddd;
+        padding: 20px;
+      }
+      /* Conteúdo */
+      .conteudo {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      /* Imagens */
+      img {
+        max-width: 100%;
+      }
+      /* Mudanças de estilo para tela pequena */
+      @media (max-width: 600px) {
+        /* Mudar tamanho da fonte para tela pequena */
+        body {
+          font-size: 14px;
+        }
+        /* Esconder alguns elementos para tela pequena */
+        .destaques {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    </header>  
+    <center>
+      <section class="conteudo">
+        <img src="https://images2.imgbox.com/02/5a/MhwwSu5t_o.png" alt="Minha imagem">
+      </section></br>
+      <a href="https://api.whatsapp.com/send?text=teste" id="whatsapp-button" target="_blank" onclick="decrementCounter()""><i class="fab fa-whatsapp"></i> Compartilhar no WhatsApp</a>
+      <p>Compartilhe <span id="counter">5</span> vezes, e receba uma surpresa!<span id="key"></span></p>
+      <script>
+          var button = document.getElementById("whatsapp-button");
+          var clickCount = 0;
+  
+          button.addEventListener("click", function() {
+              clickCount++;
+              if (clickCount === 5) {
+                  window.location.href = "https://forms.gle/RFA84TgveonQTWph7";
+              }
+          });
+      </script>
+      <section class="botao">
+        <br/>
+        <a onclick="copyKey()" id="pix-button"><i class="fas fa-dollar-sign"></i> Copiar Chave pix de celular</a>
+      </section>    
+      
+          <script>
+            function copyKey() {
+              var key = document.querySelector("#key").innerText;
+              navigator.clipboard.writeText(key);
+              alert("Chave copiada com sucesso, obrigada por ajudar a Alice em seu tratamento!");
+            }
+          </script>
+    <script>
+      var counter = document.querySelector("#counter");
+      function decrementCounter() {
+        counter.innerText = parseInt(counter.innerText) - 1;
+      }
+    </script>
+</center>
+    <footer>
+    </footer>
+  </body>
+</html>
